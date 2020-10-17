@@ -12,6 +12,8 @@ vpath default.% lib
 # {{{1 Produtos PDF
 #      ============
 
+projeto.pdf : pdf.yaml projeto.md | styles
+
 %.pdf : pdf.yaml %.md | styles
 	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
 		-v "`pwd`/assets/fonts:/usr/share/fonts" \

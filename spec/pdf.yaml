@@ -1,16 +1,24 @@
-from            : markdown+raw_tex
-to              : latex
-standalone      : true
-file-scope      : true
-number-sections : true
-template        : "lib/default.latex"
-pdf-engine      : xelatex
-fail-if-warnings: true
-cite-method     : citeproc
+from              : markdown+raw_tex
+to                : latex
+cite-method       : citeproc
+fail-if-warnings  : true
+file-scope        : true
+number-sections   : true
+pdf-engine        : xelatex
+standalone        : true
+template          : "lib/default.latex"
+top-level-division: chapter
 filters:
   - pandoc-crossref
   - pandoc-citeproc
 variables:
+  documentclass        : book
+  fontsize             : 11pt
+  geometry:
+    - top=3cm
+    - right=2cm
+    - bottom=2.5cm
+    - left=3cm
   header-includes:
     - \fancyhf{}
     - \lhead{\XeTeXglyph \XeTeXglyphindex "ass_completa_CONT" \relax}
@@ -20,26 +28,39 @@ variables:
     - \renewcommand{\footrulewidth}{0.5pt}
   include-before:
     - \thispagestyle{empty}
-metadata:
-  csl: "styles/associacao-brasileira-de-normas-tecnicas.csl"
-  suppress-bibliography: false
-  bibliography-title: "Referências bibliográficas"
-  lang: pt
-  documentclass: article
-  fontsize: 11pt
-  papersize: a4
-  indent: true
-  secnumdepth: 2
-  pagestyle: fancy
-  mainfont: "UnB Pro"
-  sansfont: "UnB Pro-Light"
+  indent               : true
+  mainfont             : "UnB Pro"
+  sansfont             : "UnB Pro-Light"
   mainfontoptions:
     - Numbers=Proportional
     - BoldFont       = UnBPro-Bold
     - ItalicFont     = UnBPro-RegularItalic
     - BoldItalicFont = UnBPro-BoldItalic
-  geometry:
-    - top=3cm
-    - right=2cm
-    - bottom=2.5cm
-    - left=3cm
+  pagestyle            : fancy
+  papersize            : a4
+  secnumdepth          : 2
+  toc                  : true
+  lof                  : true
+  lot                  : true
+  toc-depth            : 0
+  toc-title            : Sumário
+metadata:
+  # Pandoc
+  bibliography-title   : "Referências bibliográficas"
+  csl                  : "styles/associacao-brasileira-de-normas-tecnicas.csl"
+  lang                 : pt
+  suppress-bibliography: false
+  # LaTeX
+  # Pandoc-crossref
+  figureTitle          : Figura
+  lastDelim            : ' e '
+  listingTitle         : Gráfico
+  lofTitle             : '# Lista de figuras #'
+  lolTitle             : '# Lista de gráficos #'
+  lotTitle             : '# Lista de tabelas #'
+  rangeDelim           : '–'
+  tableTitle           : Tabela
+  tblPrefix:
+    - tabela
+    - tabelas
+  titleDelim           : '. '
