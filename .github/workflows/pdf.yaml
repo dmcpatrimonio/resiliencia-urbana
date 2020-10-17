@@ -12,7 +12,6 @@ jobs:
       - run: >
           git clone https://git@github.com/citation-style-language/styles.git
       - run: >
-          docker run -v "`pwd`:/data" --user "`id -u`:`id -g`"
-          -v "`pwd`/assets/fonts:/usr/share/fonts"
-          pandoc/latex:2.10
-          -d spec/pdf.yaml -o projeto.pdf projeto.md
+          docker run --user "`id -u`:`id -g`"
+          -v "`pwd`:/data" -v "`pwd`/assets/fonts:/usr/share/fonts"
+          pandoc/latex:2.10 -d spec/pdf.yaml -o projeto.pdf projeto.md
