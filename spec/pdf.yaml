@@ -6,7 +6,7 @@ file-scope        : true
 number-sections   : true
 pdf-engine        : xelatex
 standalone        : true
-template          : "lib/default.latex"
+template          : "lib/book.latex"
 top-level-division: chapter
 filters:
   - pandoc-crossref
@@ -45,12 +45,10 @@ variables:
   toc-depth            : 0
   toc-title            : Sumário
 metadata:
-  # Pandoc
   bibliography-title   : "Referências bibliográficas"
   csl                  : "styles/associacao-brasileira-de-normas-tecnicas.csl"
   lang                 : pt
   suppress-bibliography: false
-  # LaTeX
   # Pandoc-crossref
   figureTitle          : Figura
   lastDelim            : ' e '
