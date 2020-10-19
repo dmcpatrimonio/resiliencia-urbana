@@ -1,18 +1,17 @@
-from              : markdown+raw_tex
-to                : latex
-cite-method       : citeproc
-fail-if-warnings  : true
-file-scope        : true
-number-sections   : true
-pdf-engine        : xelatex
-standalone        : true
-template          : "lib/book.latex"
-top-level-division: chapter
+from                   : markdown+raw_tex
+to                     : latex
+cite-method            : citeproc
+fail-if-warnings       : true
+file-scope             : true
+number-sections        : true
+pdf-engine             : xelatex
+standalone             : true
+template               : "lib/default.latex"
 filters:
   - pandoc-crossref
   - pandoc-citeproc
 variables:
-  documentclass        : book
+  documentclass        : article
   fontsize             : 11pt
   geometry:
     - top=3cm
@@ -42,11 +41,10 @@ variables:
   toc                  : true
   lof                  : true
   lot                  : true
-  toc-depth            : 0
+  toc-depth            : 1
   toc-title            : Sumário
 metadata:
-  bibliography-title   : "Referências bibliográficas"
-  csl                  : "styles/associacao-brasileira-de-normas-tecnicas.csl"
+  csl                  : "styles/chicago-fullnote-bibliography-with-ibid.csl"
   lang                 : pt
   suppress-bibliography: false
   # Pandoc-crossref

@@ -373,7 +373,7 @@ $if(csl-refs)$
 $endif$
 
 $if(title)$
-\title{\textsf{\MakeUppercase{$title$}}$if(thanks)$\thanks{$thanks$}$endif$}
+\title{\textsf{\Huge{\MakeUppercase{$title$}}}$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
@@ -417,7 +417,7 @@ $else$
 $endif$
 $if(abstract)$
 \begin{abstract}
-$abstract$
+\noindent $abstract$
 \end{abstract}
 $endif$
 $endif$

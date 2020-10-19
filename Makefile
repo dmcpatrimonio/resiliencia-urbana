@@ -12,17 +12,17 @@ vpath default.% lib
 # {{{1 Produtos PDF
 #      ============
 
-projeto.pdf : pdf.yaml projeto.md | styles
+projeto.pdf : 
 
-%.pdf : pdf.yaml %.md | styles
+%.pdf : pdf.yaml %.md | projeto.bib styles
 	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
 		-v "`pwd`/assets/fonts:/usr/share/fonts" \
-		pandoc/latex:2.10 -o $@ -d $^
+		pandoc/latex:2.10.1 -o $@ -d $^
 
-%.tex : pdf.yaml %.md | styles
+%.tex : pdf.yaml %.md | projeto.bib styles
 	docker run -v "`pwd`:/data" --user "`id -u`:`id -g`" \
 		-v "`pwd`/assets/fonts:/usr/share/fonts" \
-		pandoc/latex:2.10 -o $@ -d $^
+		pandoc/latex:2.10.1 -o $@ -d $^
 
 # {{{1 PHONY
 #      =====
